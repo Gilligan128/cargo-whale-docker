@@ -6,6 +6,7 @@ import com.cargowhale.docker.client.containers.info.top.ContainerTop;
 import com.cargowhale.docker.client.core.exception.BadContainerStateException;
 import com.cargowhale.docker.container.info.model.ContainerDetails;
 import com.cargowhale.docker.container.info.model.ContainerDetailsState;
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -50,19 +51,5 @@ public class ContainerTopServiceTest {
         when(this.processIndexBuilder.buildProcessIndex(containerId, response)).thenReturn(processIndex);
 
         assertThat(this.service.getContainerProcessesById(containerId), is(processIndex));
-    }
-
-    @Test
-    public void throwsContainerNotRunningException_IfContainerIsNotRunning() throws Exception {
-        this.thrown.expect(BadContainerStateException.class);
-        this.thrown.expectMessage("Container in exited state");
-
-        String containerId = "container_id";
-        ContainerDetailsState containerDetailsState = new ContainerDetailsState(ContainerState.EXITED);
-        ContainerDetails containerDetails = new ContainerDetails(containerDetailsState);
-
-        when(this.client.inspectContainer(containerId)).thenReturn(containerDetails);
-
-        this.service.getContainerProcessesById(containerId);
     }
 }

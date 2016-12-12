@@ -2,10 +2,16 @@ package com.cargowhale.docker.container.info.resource
 
 import com.cargowhale.docker.container.info.model.ContainerDetails
 import com.fasterxml.jackson.annotation.JsonProperty
+import groovy.transform.Canonical
+import groovy.transform.EqualsAndHashCode
+import groovy.transform.TupleConstructor
 import org.springframework.hateoas.ResourceSupport
 
 import static com.fasterxml.jackson.annotation.JsonProperty.Access.WRITE_ONLY
 
+@EqualsAndHashCode(excludes = "containerId")
+@TupleConstructor(force = true)
+@Canonical
 class ContainerDetailsResource extends ResourceSupport {
 
     @JsonProperty("state")

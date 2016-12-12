@@ -1,5 +1,6 @@
 package com.cargowhale.docker.container.info.resource;
 
+import com.cargowhale.docker.client.containers.ContainerState;
 import com.cargowhale.docker.client.containers.info.logs.LogFilters;
 import com.cargowhale.docker.container.info.ContainerDetailsController;
 import com.cargowhale.docker.container.info.index.ContainerIndexController;
@@ -23,7 +24,10 @@ public class ContainerDetailsResourceAssembler extends ResourceAssemblerSupport<
 
         resource.add(linkTo(methodOn(ContainerIndexController.class).listContainers()).withRel("up"));
         resource.add(linkTo(methodOn(ContainerDetailsController.class).getContainerLogsById(entity.getId(), new LogFilters())).withRel("logs"));
-        resource.add(linkTo(methodOn(ContainerDetailsController.class).getContainerProcessesById(entity.getId())).withRel("top"));
+
+        if (entity.getContainerState() == ContainerState.RUNNING) {
+            resource.add(linkTo(methodOn(ContainerDetailsController.class).getContainerProcessesById(entity.getId())).withRel("top"));
+        }
 
         return resource;
     }

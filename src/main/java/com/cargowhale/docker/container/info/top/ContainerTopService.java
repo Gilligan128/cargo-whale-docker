@@ -21,11 +21,6 @@ public class ContainerTopService {
     }
 
     public ContainerProcessIndex getContainerProcessesById(final String containerId) {
-        ContainerDetails containerDetails = this.client.inspectContainer(containerId);
-        if (!containerDetails.getContainerState().equals(ContainerState.RUNNING)) {
-            throw new BadContainerStateException(containerDetails.getState().getState());
-        }
-
         ContainerTop dockerIndex = this.client.getContainerProcesses(containerId);
         return this.processIndexBuilder.buildProcessIndex(containerId, dockerIndex);
     }

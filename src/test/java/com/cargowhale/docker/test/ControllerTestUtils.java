@@ -21,8 +21,8 @@ public class ControllerTestUtils {
         HttpServletRequest httpServletRequestMock = mock(HttpServletRequest.class);
 
         when(httpServletRequestMock.getRequestURL()).thenReturn(new StringBuffer(localHost));
-        when(httpServletRequestMock.getHeaderNames()).thenReturn(Collections.emptyEnumeration());
         when(httpServletRequestMock.getRequestURI()).thenReturn(localHost);
+        when(httpServletRequestMock.getHeaderNames()).thenReturn(Collections.emptyEnumeration());
         when(httpServletRequestMock.getContextPath()).thenReturn("");
         when(httpServletRequestMock.getServletPath()).thenReturn("");
 

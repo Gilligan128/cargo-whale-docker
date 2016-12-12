@@ -3,7 +3,8 @@ package com.cargowhale.docker.container.info.integration;
 import com.cargowhale.docker.client.containers.ContainerState;
 import com.cargowhale.docker.client.containers.info.list.ContainerListItem;
 import com.cargowhale.docker.client.core.DockerRestTemplate;
-import com.cargowhale.docker.container.info.index.ContainerIndex;
+import com.cargowhale.docker.container.info.index.ContainerIndexResource;
+import com.cargowhale.docker.container.info.index.ContainerListItemResource;
 import org.assertj.core.util.Arrays;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,7 +13,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.hateoas.Resource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -21,15 +21,14 @@ import java.util.List;
 
 import static com.cargowhale.docker.test.ControllerTestUtils.getForType;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.*;
 import static org.mockito.Mockito.when;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class ContainerInfoControllerAllContainersIT {
 
-    private static class ContainerListResponseItemIndexResourceType extends ParameterizedTypeReference<Resource<ContainerIndex>> {
+    private static class ContainerIndexResourceType extends ParameterizedTypeReference<ContainerIndexResource> {
     }
 
     @MockBean
@@ -44,13 +43,13 @@ public class ContainerInfoControllerAllContainersIT {
 
         when(this.restTemplate.getForObject("/v1.24/containers/json?all=1", ContainerListItem[].class)).thenReturn(containerArray);
 
-        ResponseEntity<Resource<ContainerIndex>> response = getForType(this.client, "/api/containers", new ContainerListResponseItemIndexResourceType());
+        ResponseEntity<ContainerIndexResource> response = getForType(this.client, "/api/containers", new ContainerIndexResourceType());
 
         assertThat(response.getStatusCode(), is(HttpStatus.OK));
 
-        ContainerIndex containerIndex = response.getBody().getContent();
-        List<ContainerListItem> containerList = containerIndex.getContainers();
-        assertThat(containerList.size(), is(0));
+        ContainerIndexResource containerIndex = response.getBody();
+        List<ContainerListItemResource> containerList = containerIndex.getContainers();
+        assertThat(containerList, hasSize(0));
     }
 
     @Test
@@ -60,13 +59,13 @@ public class ContainerInfoControllerAllContainersIT {
 
         when(this.restTemplate.getForObject("/v1.24/containers/json?all=1", ContainerListItem[].class)).thenReturn(containerArray);
 
-        ResponseEntity<Resource<ContainerIndex>> response = getForType(this.client, "/api/containers", new ContainerListResponseItemIndexResourceType());
+        ResponseEntity<ContainerIndexResource> response = getForType(this.client, "/api/containers", new ContainerIndexResourceType());
 
         assertThat(response.getStatusCode(), is(HttpStatus.OK));
 
-        ContainerIndex containerIndex = response.getBody().getContent();
-        List<ContainerListItem> containerList = containerIndex.getContainers();
-        assertThat(containerList.size(), is(1));
+        ContainerIndexResource containerIndex = response.getBody();
+        List<ContainerListItemResource> containerList = containerIndex.getContainers();
+        assertThat(containerList, hasSize(1));
 
         assertThat(containerList.get(0), is(containerListItem1));
     }
@@ -79,13 +78,13 @@ public class ContainerInfoControllerAllContainersIT {
 
         when(this.restTemplate.getForObject("/v1.24/containers/json?all=1", ContainerListItem[].class)).thenReturn(containerArray);
 
-        ResponseEntity<Resource<ContainerIndex>> response = getForType(this.client, "/api/containers", new ContainerListResponseItemIndexResourceType());
+        ResponseEntity<ContainerIndexResource> response = getForType(this.client, "/api/containers", new ContainerIndexResourceType());
 
         assertThat(response.getStatusCode(), is(HttpStatus.OK));
 
-        ContainerIndex containerIndex = response.getBody().getContent();
-        List<ContainerListItem> containerList = containerIndex.getContainers();
-        assertThat(containerList.size(), is(2));
+        ContainerIndexResource containerIndex = response.getBody();
+        List<ContainerListItemResource> containerList = containerIndex.getContainers();
+        assertThat(containerList, hasSize(2));
 
         assertThat(containerList.get(0), equalTo(containerListItem1));
         assertThat(containerList.get(1), equalTo(containerListItem2));
