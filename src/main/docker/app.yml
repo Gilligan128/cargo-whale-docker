@@ -1,12 +1,23 @@
 version: '2'
 services:
-  cargowhaledocker-app:
-    image: cargo-whale-docker
+  cargowhale:
+    image: rxnctrllabs/cargo-whale
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
     external_links:
-      - socat-docker:socat
+      - graphite:graphite
     ports:
       - 8081:8081
-  socat-docker:
-    extends:
-      file: socat.yml
-      service: socat-docker
+
+  grafana:
+    image: grafana/grafana
+    external_links:
+      - graphite:graphite
+    ports:
+      - 8083:3000
+
+  graphite:
+    image: hopsoft/graphite-statsd
+    ports:
+      - 8082:80
+

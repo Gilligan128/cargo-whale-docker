@@ -1,5 +1,5 @@
-@import "theme";
-@import "variables";
+@import "../app/shared/styles/theme";
+@import "../app/shared/styles/variables";
 
 html {
     position: relative;
@@ -64,4 +64,9 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: $font-bold;
     text-transform: uppercase;
     opacity: 0.9;
+}
+
+.row.vertical-align {
+    display: flex;
+    align-items: center;
 }

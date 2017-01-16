@@ -2,7 +2,9 @@
 title: Cargo Whale API
 
 uses:
-  Containers: libraries/containers.raml
+  Containers: libraries/container-common.raml
+  ContainerIndex: libraries/container-index.raml
+  ContainerDetails: libraries/container-details.raml
   Index: libraries/index.raml
 
 /api:
@@ -27,7 +29,7 @@ uses:
         200:
           body:
             application/hal+json:
-              type: Containers.Index
+              type: ContainerIndex.Index
               examples:
                 all: !include examples/container-index.json
                 created: !include examples/container-index-created.json
@@ -48,7 +50,7 @@ uses:
           200:
             body:
               application/hal+json:
-                type: Containers.Details
+                type: ContainerDetails.Details
                 example: !include examples/container-details.json
 
       /top:
@@ -104,3 +106,12 @@ uses:
               body:
                 application/hal+json:
                   example: !include examples/container-logs.json
+
+      /stats:
+        get:
+          description: Processes from a specific container
+          responses:
+            200:
+              body:
+                application/hal+json:
+                  example: !include examples/container-stats.json

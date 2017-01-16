@@ -9,13 +9,21 @@
       "state": "created",
       "image": "rxnctrllabs/socat",
       "imageId": "sha256:57a61d9072453ce5300530c5e50dae39",
-      "names": [
-        "/socat"
-      ],
-      "status": "Created"
+      "name": "/socat",
+      "id": "f911b0f4e0b19e3da3bae6dcff82195",
+      "status": "Created",
+      "ports": [
+        {
+          "ip": "10.0.1.794",
+          "privatePort": 2375,
+          "publicPort": 2375,
+          "type": "tcp"
+        }
+      ]
     }
   ],
   "stateMetadata": {
+    "all": 1,
     "created": 1,
     "restarting": 0,
     "running": 0,

@@ -1,0 +1,33 @@
+<div class="page-top">
+    <h1 class="page-title">Containers</h1>
+    <br>
+    <div class="btn-group">
+        <button *ngFor="let state of stateMetadata | keys" class="btn container-btn">
+            <span class="state-icon {{state}}"></span>&nbsp;{{state}}&nbsp;<span class="badge state-badge">{{stateMetadata[state]}}</span>
+        </button>
+    </div>
+</div>
+
+<div *ngFor="let container of containers" class="col-lg-4 col-md-6 col-xs-12">
+    <cw-card [link]="true" (click)="onClickContainer(container)">
+        <div card-header>
+            <h3 class="card-title">{{container.name | replace : '/'}}</h3>
+        </div>
+
+        <div card-body>
+            <div class="container-phase sm {{container.state}}">
+                <p>
+                    <span class="container-state">{{container.state}}</span>
+                    <br/>
+                    <span class="container-status">{{container.status}}</span>
+                </p>
+            </div>
+
+            <cw-divider></cw-divider>
+            <cw-info-item [name]="'Image'"
+                          [divider]="false">
+                <span class="value">{{container.image | truncate: 40}}</span>
+            </cw-info-item>
+        </div>
+    </cw-card>
+</div>

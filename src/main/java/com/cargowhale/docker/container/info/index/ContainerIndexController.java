@@ -1,8 +1,8 @@
 package com.cargowhale.docker.container.info.index;
 
 import com.cargowhale.docker.client.containers.ContainerState;
+import com.cargowhale.docker.client.containers.ListContainersParam;
 import com.cargowhale.docker.container.ContainerEnumConverter;
-import com.cargowhale.docker.container.info.ContainerInfoService;
 import com.cargowhale.docker.exception.CargoWhaleErrorMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.MediaTypes;
@@ -13,18 +13,22 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
+
+import static com.cargowhale.docker.client.containers.ListContainersParam.allContainers;
+import static java.util.Arrays.stream;
 
 @RestController
 @RequestMapping("/api/containers")
 public class ContainerIndexController {
 
-    private final ContainerInfoService service;
-    private final ContainerIndexResourceAssembler indexResourceAssembler;
+    private final ContainerIndexService service;
+    private final ContainerIndexResourceAssembler resourceAssembler;
 
     @Autowired
-    public ContainerIndexController(final ContainerInfoService service, final ContainerIndexResourceAssembler indexResourceAssembler) {
+    public ContainerIndexController(final ContainerIndexService service, final ContainerIndexResourceAssembler resourceAssembler) {
         this.service = service;
-        this.indexResourceAssembler = indexResourceAssembler;
+        this.resourceAssembler = resourceAssembler;
     }
 
     @InitBinder
@@ -41,15 +45,21 @@ public class ContainerIndexController {
     @RequestMapping(method = RequestMethod.GET,
         produces = MediaTypes.HAL_JSON_VALUE)
     public ContainerIndexResource listContainers() {
-        ContainerIndex summaryIndex = this.service.getAllContainers();
-        return this.indexResourceAssembler.toResource(summaryIndex);
+        List<ContainerResource> containerResources = this.service.getContainers(allContainers());
+
+        return this.resourceAssembler.toResource(containerResources);
     }
 
     @RequestMapping(method = RequestMethod.GET,
         params = "state",
         produces = MediaTypes.HAL_JSON_VALUE)
-    public ContainerIndexResource listContainers(final StateFilters stateFilters) {
-        ContainerIndex summaryIndex = this.service.getContainersFilterByStatus(stateFilters.getState());
-        return this.indexResourceAssembler.toResource(summaryIndex);
+    public ContainerIndexResource listContainers(@RequestParam final ContainerState... state) {
+        ListContainersParam[] params = stream(state)
+            .map(ListContainersParam::state)
+            .toArray(ListContainersParam[]::new);
+
+        List<ContainerResource> containerResources = this.service.getContainers(params);
+
+        return this.resourceAssembler.toResource(containerResources);
     }
 }

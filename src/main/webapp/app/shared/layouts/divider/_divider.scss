@@ -1,0 +1,11 @@
+@import "../../styles/theme";
+@import "../../styles/variables";
+
+.divider {
+    height: 1px;
+    width: 100%;
+    display: block;
+    margin: 16px auto;
+    overflow: hidden;
+    background-color: $default-text;
+}

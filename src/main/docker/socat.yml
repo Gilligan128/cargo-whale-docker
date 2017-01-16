@@ -1,11 +1,8 @@
 version: '2'
 services:
-  socat-docker:
-    build:
-      context: ./
-      dockerfile: socat-Dockerfile
-    container_name: socat-docker
-    image: rxnctrllabs/socat
+  docker-proxy:
+    container_name: docker-proxy
+    image: rxnctrllabs/docker-proxy
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     ports:

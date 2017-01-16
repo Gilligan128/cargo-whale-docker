@@ -1,0 +1,131 @@
+@import "../../shared/styles/theme";
+@import "../../shared/styles/variables";
+
+@mixin state-color($color) {
+    border-color: $color;
+    color: $color;
+}
+
+@mixin container-circle($diameter) {
+    width: $diameter;
+    height: $diameter;
+    line-height: $diameter - 5px;
+
+    border-radius: $diameter / 2;
+    border: round($diameter / 100) solid;
+}
+
+.created {
+    @include state-color($success);
+}
+
+.restarting {
+    @include state-color($info);
+}
+
+.paused {
+    @include state-color($warning);
+}
+
+.running {
+    @include state-color($primary);
+}
+
+.exited {
+    @include state-color($danger);
+}
+
+.dead {
+    @include state-color($disabled);
+}
+
+.container-phase {
+    position: relative;
+    display: block;
+    margin: auto;
+
+    text-transform: capitalize;
+    text-align: center;
+
+    &.sm {
+        @include container-circle(180px);
+
+        p {
+            .container-state {
+                font-size: 14px;
+            }
+
+            .container-status {
+                font-size: 12px;
+            }
+        }
+    }
+
+    &.bg {
+        @include container-circle(320px);
+
+        p {
+            .container-state {
+                font-size: 18px;
+            }
+
+            .container-name {
+                font-size: 14px;
+            }
+        }
+    }
+
+    p {
+        margin: auto;
+        vertical-align: middle;
+        display: inline-block;
+        line-height: normal;
+    }
+}
+
+.info-item {
+    @include cw-clearfix;
+
+    width: 99%;
+    margin: 10px auto;
+    text-align: center;
+
+    .name {
+        color: $default;
+        float: left;
+    }
+
+    .value {
+        float: right;
+        text-align: right;
+        max-width: 85%;
+        word-wrap: break-word;
+    }
+}
+
+.container-btn {
+    color: $default;
+    background-color: $content-item;
+
+    border: $bootstrap-panel-header-border;
+    text-transform: capitalize;
+
+    &:hover, &:focus, &:active {
+        color: $default;
+        background-color: $content-item-selected;
+    }
+
+    .state-icon {
+        width: 8px;
+        height: 8px;
+        display: inline-block;
+
+        border: 4px solid;
+        border-radius: 4px;
+    }
+
+    .state-badge {
+        color: $content-item;
+        background-color: $default;
+    }
+}

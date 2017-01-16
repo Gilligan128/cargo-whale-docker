@@ -9,10 +9,10 @@
       "state": "exited",
       "image": "ubuntu-c",
       "imageId": "sha256:0d511c05f6ebefa4dee",
-      "names": [
-        "/rpn"
-      ],
-      "status": "Exited (0) 7 weeks ago"
+      "name": "/rpn",
+      "id": "92c23fc9e379630e6f9a17",
+      "status": "Exited (0) 7 weeks ago",
+      "ports": []
     },
     {
       "_links": {
@@ -23,10 +23,10 @@
       "state": "exited",
       "image": "resin/armv7hf-debian",
       "imageId": "sha256:5aa56079fb2a4575907f0f77f6",
-      "names": [
-        "/arm"
-      ],
-      "status": "Exited (0) 2 weeks ago"
+      "name": "/arm",
+      "id": "270f2e51eed51e3c5d5d6b13cdd18d5",
+      "status": "Exited (0) 2 weeks ago",
+      "ports": []
     },
     {
       "_links": {
@@ -37,13 +37,21 @@
       "state": "running",
       "image": "rxnctrllabs/socat",
       "imageId": "sha256:57a61d9072453ce5300530c5e50dae39",
-      "names": [
-        "/socat"
-      ],
-      "status": "Up 5 days"
+      "name": "/socat",
+      "id": "f911b0f4e0b19e3da3bae6dcff82195",
+      "status": "Up 5 days",
+      "ports": [
+        {
+          "ip": "10.0.1.794",
+          "privatePort": 2375,
+          "publicPort": 2375,
+          "type": "tcp"
+        }
+      ]
     }
   ],
   "stateMetadata": {
+    "all": 3,
     "created": 0,
     "restarting": 0,
     "running": 1,

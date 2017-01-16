@@ -10,6 +10,6 @@ import static java.lang.String.format;
 public class BadContainerStateException extends RuntimeException {
 
     public BadContainerStateException(final ContainerState state) {
-        super(format("Container in %s state", state.state));
+        super(format("Container in %s state", state.getState()));
     }
 }

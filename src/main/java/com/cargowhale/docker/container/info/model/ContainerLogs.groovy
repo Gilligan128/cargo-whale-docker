@@ -12,7 +12,7 @@ class ContainerLogs {
 
     @JsonProperty(access = WRITE_ONLY)
     final String id
-    final String logs;
+    final String logs
 
     ContainerLogs(@JsonProperty("Id") final String id,
                   @JsonProperty("Logs") final String logs) {

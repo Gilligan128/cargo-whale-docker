@@ -20,6 +20,17 @@ spring:
 server:
   port: 8081
 
+logging:
+  level:
+    com.cargowhale: #logback.loglevel#
+
+endpoints:
+  metrics:
+    filter:
+      gauge-submissions: per_http_method
+      counter-submissions: per_http_method
+
+
 # ===================================================================
 # CargoWhale specific properties
 # ===================================================================

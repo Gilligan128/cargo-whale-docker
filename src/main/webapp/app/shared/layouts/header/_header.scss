@@ -1,0 +1,38 @@
+@import "../../styles/theme";
+@import "../../styles/variables";
+
+.header {
+    height: $header-height;
+    width: 100%;
+    min-width: $resMin;
+    padding: 0 32px 0 6px;
+    z-index: 1000;
+    position: fixed;
+
+    box-shadow: 2px 0 3px rgba(0, 0, 0, 0.5);
+    background-color: $sidebar;
+
+    .breadcrumb {
+        line-height: $header-height;
+        margin: 0;
+        padding: 0 0 0 $sidebar-width;
+        float: left;
+
+        background: none;
+        color: $default-text;
+
+        li {
+            font-size: 14px;
+            font-weight: $font-normal;
+
+            a {
+                color: $primary-light;
+                cursor: pointer;
+            }
+
+            &.breadcrumb-item.active {
+                color: $default-text;
+            }
+        }
+    }
+}

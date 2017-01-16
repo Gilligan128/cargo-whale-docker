@@ -13,16 +13,16 @@ public class DefaultProfileUtil {
     private DefaultProfileUtil() {
     }
 
-    public static void addDefaultProfile(SpringApplication app) {
+    public static void addDefaultProfile(final SpringApplication app) {
         Map<String, Object> properties = new HashMap<>();
         /*
         * See https://github.com/spring-projects/spring-boot/issues/1219
         */
-        properties.put(SPRING_PROFILE_DEFAULT, Constants.SPRING_PROFILE_DEVELOPMENT);
+        properties.put(SPRING_PROFILE_DEFAULT, ProfileConstants.SPRING_PROFILE_DEVELOPMENT);
         app.setDefaultProperties(properties);
     }
 
-    public static String[] getActiveProfiles(Environment env) {
+    public static String[] getActiveProfiles(final Environment env) {
         String[] profiles = env.getActiveProfiles();
         if (profiles.length == 0) {
             return env.getDefaultProfiles();

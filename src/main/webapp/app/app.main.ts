@@ -1,4 +1,4 @@
 import {platformBrowserDynamic} from "@angular/platform-browser-dynamic";
-import {CargoWhaleDockerAppModule} from "./app.module";
+import {CargoWhaleAppModule} from "./app.module";
 
-platformBrowserDynamic().bootstrapModule(CargoWhaleDockerAppModule);
+platformBrowserDynamic().bootstrapModule(CargoWhaleAppModule);
