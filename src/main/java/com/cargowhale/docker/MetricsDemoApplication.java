@@ -1,7 +1,6 @@
 package com.cargowhale.docker;
 
 import com.cargowhale.docker.config.DefaultProfileUtil;
-import com.cargowhale.docker.config.docker.DockerProperties;
 import com.cargowhale.docker.config.ProfileConstants;
 import com.cargowhale.docker.config.metrics.MetricsGraphiteProperties;
 import com.cargowhale.docker.config.metrics.MetricsJvmProperties;
@@ -18,14 +17,14 @@ import java.net.UnknownHostException;
 import java.util.Arrays;
 import java.util.Collection;
 
-@EnableConfigurationProperties({DockerProperties.class, MetricsLogsProperties.class, MetricsGraphiteProperties.class, MetricsJvmProperties.class})
+@EnableConfigurationProperties({MetricsLogsProperties.class, MetricsGraphiteProperties.class, MetricsJvmProperties.class})
 @SpringBootApplication
-public class CargoWhaleApplication {
+public class MetricsDemoApplication {
 
-    private static final Logger log = LoggerFactory.getLogger(CargoWhaleApplication.class);
+    private static final Logger log = LoggerFactory.getLogger(MetricsDemoApplication.class);
 
     public static void main(final String[] args) throws UnknownHostException {
-        SpringApplication app = new SpringApplication(CargoWhaleApplication.class);
+        SpringApplication app = new SpringApplication(MetricsDemoApplication.class);
         DefaultProfileUtil.addDefaultProfile(app);
         Environment env = app.run(args).getEnvironment();
         log.info("\n----------------------------------------------------------\n\t" +
