@@ -13,23 +13,20 @@
 
 
 # ===================================================================
-# CargoWhale specific properties
+# MetricsDemo specific properties
 # ===================================================================
 
-cargowhale:
-  docker:
-    uri: unix:///var/run/docker.sock
-
+metricsdemo:
   metrics:
     jvm:
       enabled: false
     logs:
       enabled: true
       period: 60
-      prefix: cargowhale
+      prefix:
     graphite:
       enabled: false
       host: graphite
       port: 2003
       period: 60
-      prefix: cargowhale
+      prefix:

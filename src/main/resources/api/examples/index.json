@@ -1,7 +1,0 @@
-{
-  "_links": {
-    "containers": {
-      "href": "http://localhost/api/containers"
-    }
-  }
-}

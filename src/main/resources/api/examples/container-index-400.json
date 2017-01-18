@@ -1,5 +1,0 @@
-{
-  "path": "/api/containers",
-  "message": "Bad Filter",
-  "error": "class org.springframework.validation.BindException"
-}

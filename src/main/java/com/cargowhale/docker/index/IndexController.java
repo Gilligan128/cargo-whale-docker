@@ -10,10 +10,27 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api")
 public class IndexController {
 
-    @RequestMapping(method = RequestMethod.GET,
+    @RequestMapping(value = "/happy",
+        method = RequestMethod.GET,
         produces = MediaTypes.HAL_JSON_VALUE)
-    @Timed(name = "endpoint.index", absolute = true)
-    public IndexResource index() {
+    @Timed(name = "endpoint.happy", absolute = true)
+    public IndexResource happy() {
+        return new IndexResource();
+    }
+
+    @RequestMapping(value = "/sad",
+        method = RequestMethod.GET,
+        produces = MediaTypes.HAL_JSON_VALUE)
+    @Timed(name = "endpoint.sad", absolute = true)
+    public IndexResource sad() {
+        return new IndexResource();
+    }
+
+    @RequestMapping(value = "/bad",
+        method = RequestMethod.GET,
+        produces = MediaTypes.HAL_JSON_VALUE)
+    @Timed(name = "endpoint.bad", absolute = true)
+    public IndexResource bad() {
         return new IndexResource();
     }
 }

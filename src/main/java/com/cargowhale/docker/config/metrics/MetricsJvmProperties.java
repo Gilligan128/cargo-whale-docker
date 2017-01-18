@@ -2,7 +2,7 @@ package com.cargowhale.docker.config.metrics;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-@ConfigurationProperties(prefix = "cargowhale.metrics.jvm", ignoreUnknownFields = false)
+@ConfigurationProperties(prefix = "metricsdemo.metrics.jvm", ignoreUnknownFields = false)
 public class MetricsJvmProperties {
 
     private Boolean enabled;

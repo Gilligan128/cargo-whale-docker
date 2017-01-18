@@ -2,7 +2,7 @@ package com.cargowhale.docker.config.metrics;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-@ConfigurationProperties(prefix = "cargowhale.metrics.logs", ignoreUnknownFields = false)
+@ConfigurationProperties(prefix = "metricsdemo.metrics.logs", ignoreUnknownFields = false)
 public class MetricsLogsProperties {
 
     private Boolean enabled;

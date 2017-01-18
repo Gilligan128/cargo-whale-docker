@@ -35,9 +35,6 @@ public class MetricsDemoApplication {
             env.getProperty("server.port"),
             InetAddress.getLocalHost().getHostAddress(),
             env.getProperty("server.port"));
-        log.info("\n----------------------------------------------------------\n\t" +
-                "Docker running at '{}'\n----------------------------------------------------------",
-            env.getProperty("cargowhale.docker.uri"));
 
         checkProfiles(env);
     }

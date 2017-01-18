@@ -2,7 +2,7 @@ package com.cargowhale.docker.config.metrics;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-@ConfigurationProperties(prefix = "cargowhale.metrics.graphite", ignoreUnknownFields = false)
+@ConfigurationProperties(prefix = "metricsdemo.metrics.graphite", ignoreUnknownFields = false)
 public class MetricsGraphiteProperties {
 
     private Boolean enabled;
