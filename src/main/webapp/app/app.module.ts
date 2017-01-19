@@ -4,18 +4,16 @@ import {HttpModule} from "@angular/http";
 import {CommonModule} from "@angular/common";
 
 import {LayoutsModule} from "./shared/layouts/layouts.module";
-import {PagesModule} from "./pages/pages.module";
-import {PagesComponent} from "./pages/pages.component";
+import {MainComponent} from "./shared/layouts/main/main.component";
 
 @NgModule({
     imports: [
         CommonModule,
         BrowserModule,
         HttpModule,
-        LayoutsModule,
-        PagesModule
+        LayoutsModule
     ],
-    bootstrap: [PagesComponent],
+    bootstrap: [MainComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class CargoWhaleAppModule {
