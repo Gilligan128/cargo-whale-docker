@@ -1,7 +1,7 @@
 <main>
     <div class="content">
-        <div class="container-fluid">
-            <div class="col-xs-12">
+        <div *ngIf="metrics" class="container-fluid">
+            <div class="col-sm-12 col-lg-offset-2 col-lg-8">
                 <cw-card>
                     <div card-header>
                         <h3 class="card-title">Happy</h3>
@@ -9,11 +9,65 @@
 
                     <div card-body class="text-center">
                         <button class="btn btn-success btn-lg" (click)="happyButton()">Press me!</button>
+
+                        <br>
+                        <br>
+
+                        <div class="row">
+                            <cw-card class="col-xs-6 col-sm-3">
+                                <div card-header>
+                                    <h3 class="card-title">Count</h3>
+                                </div>
+                                <div card-body class="text-center">
+                                    <p>{{metrics['endpoint.happy.count']}}</p>
+                                </div>
+                            </cw-card>
+                            <cw-card class="col-xs-6 col-sm-3">
+                                <div card-header>
+                                    <h3 class="card-title">Max Latency</h3>
+                                </div>
+                                <div card-body class="text-center">
+                                    <p>{{metrics['endpoint.happy.snapshot.max']}}</p>
+                                </div>
+                            </cw-card>
+                            <cw-card class="col-xs-6 col-sm-3">
+                                <div card-header>
+                                    <h3 class="card-title">Mean Latency</h3>
+                                </div>
+                                <div card-body class="text-center">
+                                    <p>{{metrics['endpoint.happy.snapshot.mean']}}</p>
+                                </div>
+                            </cw-card>
+                            <cw-card class="col-xs-6 col-sm-3">
+                                <div card-header>
+                                    <h3 class="card-title">Min Latency</h3>
+                                </div>
+                                <div card-body class="text-center">
+                                    <p>{{metrics['endpoint.happy.snapshot.min']}}</p>
+                                </div>
+                            </cw-card>
+                            <cw-card class="col-xs-6 col-sm-3">
+                                <div card-header>
+                                    <h3 class="card-title">95th</h3>
+                                </div>
+                                <div card-body class="text-center">
+                                    <p>{{metrics['endpoint.happy.snapshot.95thPercentile']}}</p>
+                                </div>
+                            </cw-card>
+                            <cw-card class="col-xs-6 col-sm-3">
+                                <div card-header>
+                                    <h3 class="card-title">Count/Min</h3>
+                                </div>
+                                <div card-body class="text-center">
+                                    <p>{{metrics['endpoint.happy.oneMinuteRate'] | truncate: 8 : false}}</p>
+                                </div>
+                            </cw-card>
+                        </div>
                     </div>
                 </cw-card>
             </div>
 
-            <div class="col-xs-12">
+            <div class="col-sm-12 col-lg-offset-2 col-lg-8">
                 <cw-card>
                     <div card-header>
                         <h3 class="card-title">Sad</h3>
@@ -21,11 +75,65 @@
 
                     <div card-body class="text-center">
                         <button class="btn btn-warning btn-lg" (click)="sadButton()">Press me!</button>
+
+                        <br>
+                        <br>
+
+                        <div class="row">
+                            <cw-card class="col-xs-6 col-sm-3">
+                                <div card-header>
+                                    <h3 class="card-title">Count</h3>
+                                </div>
+                                <div card-body class="text-center">
+                                    <p>{{metrics['endpoint.sad.count']}}</p>
+                                </div>
+                            </cw-card>
+                            <cw-card class="col-xs-6 col-sm-3">
+                                <div card-header>
+                                    <h3 class="card-title">Max Latency</h3>
+                                </div>
+                                <div card-body class="text-center">
+                                    <p>{{metrics['endpoint.sad.snapshot.max']}}</p>
+                                </div>
+                            </cw-card>
+                            <cw-card class="col-xs-6 col-sm-3">
+                                <div card-header>
+                                    <h3 class="card-title">Mean Latency</h3>
+                                </div>
+                                <div card-body class="text-center">
+                                    <p>{{metrics['endpoint.sad.snapshot.mean']}}</p>
+                                </div>
+                            </cw-card>
+                            <cw-card class="col-xs-6 col-sm-3">
+                                <div card-header>
+                                    <h3 class="card-title">Min Latency</h3>
+                                </div>
+                                <div card-body class="text-center">
+                                    <p>{{metrics['endpoint.sad.snapshot.min']}}</p>
+                                </div>
+                            </cw-card>
+                            <cw-card class="col-xs-6 col-sm-3">
+                                <div card-header>
+                                    <h3 class="card-title">95th</h3>
+                                </div>
+                                <div card-body class="text-center">
+                                    <p>{{metrics['endpoint.sad.snapshot.95thPercentile']}}</p>
+                                </div>
+                            </cw-card>
+                            <cw-card class="col-xs-6 col-sm-3">
+                                <div card-header>
+                                    <h3 class="card-title">Count/Min</h3>
+                                </div>
+                                <div card-body class="text-center">
+                                    <p>{{metrics['endpoint.sad.oneMinuteRate'] | truncate: 8 : false}}</p>
+                                </div>
+                            </cw-card>
+                        </div>
                     </div>
                 </cw-card>
             </div>
 
-            <div class="col-xs-12">
+            <div class="col-sm-12 col-lg-offset-2 col-lg-8">
                 <cw-card>
                     <div card-header>
                         <h3 class="card-title">Mad</h3>
@@ -33,6 +141,60 @@
 
                     <div card-body class="text-center">
                         <button class="btn btn-danger btn-lg" (click)="madButton()">Press me!</button>
+
+                        <br>
+                        <br>
+
+                        <div class="row">
+                            <cw-card class="col-xs-6 col-sm-3">
+                                <div card-header>
+                                    <h3 class="card-title">Count</h3>
+                                </div>
+                                <div card-body class="text-center">
+                                    <p>{{metrics['endpoint.mad.count']}}</p>
+                                </div>
+                            </cw-card>
+                            <cw-card class="col-xs-6 col-sm-3">
+                                <div card-header>
+                                    <h3 class="card-title">Max Latency</h3>
+                                </div>
+                                <div card-body class="text-center">
+                                    <p>{{metrics['endpoint.mad.snapshot.max']}}</p>
+                                </div>
+                            </cw-card>
+                            <cw-card class="col-xs-6 col-sm-3">
+                                <div card-header>
+                                    <h3 class="card-title">Mean Latency</h3>
+                                </div>
+                                <div card-body class="text-center">
+                                    <p>{{metrics['endpoint.mad.snapshot.mean']}}</p>
+                                </div>
+                            </cw-card>
+                            <cw-card class="col-xs-6 col-sm-3">
+                                <div card-header>
+                                    <h3 class="card-title">Min Latency</h3>
+                                </div>
+                                <div card-body class="text-center">
+                                    <p>{{metrics['endpoint.mad.snapshot.min']}}</p>
+                                </div>
+                            </cw-card>
+                            <cw-card class="col-xs-6 col-sm-3">
+                                <div card-header>
+                                    <h3 class="card-title">95th</h3>
+                                </div>
+                                <div card-body class="text-center">
+                                    <p>{{metrics['endpoint.mad.snapshot.95thPercentile']}}</p>
+                                </div>
+                            </cw-card>
+                            <cw-card class="col-xs-6 col-sm-3">
+                                <div card-header>
+                                    <h3 class="card-title">Count/Min</h3>
+                                </div>
+                                <div card-body class="text-center">
+                                    <p>{{metrics['endpoint.mad.oneMinuteRate'] | truncate: 8 : false}}</p>
+                                </div>
+                            </cw-card>
+                        </div>
                     </div>
                 </cw-card>
             </div>

@@ -18,22 +18,25 @@ export class MainComponent implements OnInit {
     }
 
     happyButton() {
-        this.apiService.getHappy().subscribe(response => {
-            console.log(response.json());
+        this.apiService.getHappy().subscribe(() => {
+            this.retrieveMetrics();
+        }, () => {
             this.retrieveMetrics();
         });
     }
 
     sadButton() {
-        this.apiService.getSad().subscribe(response => {
-            console.log(response.json());
+        this.apiService.getSad().subscribe(() => {
+            this.retrieveMetrics();
+        }, () => {
             this.retrieveMetrics();
         });
     }
 
     madButton() {
-        this.apiService.getMad().subscribe(response => {
-            console.log(response.json());
+        this.apiService.getMad().subscribe(() => {
+            this.retrieveMetrics();
+        }, () => {
             this.retrieveMetrics();
         });
     }
@@ -42,6 +45,8 @@ export class MainComponent implements OnInit {
         this.metricsService.getMetrics().subscribe(response => {
             console.log(response.json());
             this.metrics = response.json();
+        }, error => {
+            console.log(error.json());
         });
     }
 }

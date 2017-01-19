@@ -5,15 +5,15 @@ import {Pipe, PipeTransform} from "@angular/core";
 })
 export class TruncateCharactersPipe implements PipeTransform {
 
-    transform(input: string, chars: number, breakOnWord?: boolean): string {
+    transform(input: any, chars: number, breakOnWord?: boolean): string {
         if (isNaN(chars)) {
             return input;
         }
         if (chars <= 0) {
             return '';
         }
-        if (input && input.length > chars) {
-            input = input.substring(0, chars);
+        if (input && String(input).length > chars) {
+            input = String(input).substring(0, chars);
 
             if (!breakOnWord) {
                 let lastSpace = input.lastIndexOf(' ');
