@@ -30,6 +30,9 @@ endpoints:
       gauge-submissions: per_http_method
       counter-submissions: per_http_method
 
+    path: /api/metrics
+  shutdown:
+    enabled: false
 
 # ===================================================================
 # CargoWhale specific properties

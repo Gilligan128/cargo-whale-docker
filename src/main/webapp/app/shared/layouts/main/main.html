@@ -1,35 +1,41 @@
 <main>
     <div class="content">
         <div class="container-fluid">
-            <cw-card>
-                <div card-header>
-                    <h3 class="card-title">Happy</h3>
-                </div>
+            <div class="col-xs-12">
+                <cw-card>
+                    <div card-header>
+                        <h3 class="card-title">Happy</h3>
+                    </div>
 
-                <div card-body>
-                    <h1>Body</h1>
-                </div>
-            </cw-card>
+                    <div card-body class="text-center">
+                        <button class="btn btn-success btn-lg" (click)="happyButton()">Press me!</button>
+                    </div>
+                </cw-card>
+            </div>
 
-            <cw-card>
-                <div card-header>
-                    <h3 class="card-title">Sad</h3>
-                </div>
+            <div class="col-xs-12">
+                <cw-card>
+                    <div card-header>
+                        <h3 class="card-title">Sad</h3>
+                    </div>
 
-                <div card-body>
-                    <h1>Body</h1>
-                </div>
-            </cw-card>
+                    <div card-body class="text-center">
+                        <button class="btn btn-warning btn-lg" (click)="sadButton()">Press me!</button>
+                    </div>
+                </cw-card>
+            </div>
 
-            <cw-card>
-                <div card-header>
-                    <h3 class="card-title">Mad</h3>
-                </div>
+            <div class="col-xs-12">
+                <cw-card>
+                    <div card-header>
+                        <h3 class="card-title">Mad</h3>
+                    </div>
 
-                <div card-body>
-                    <h1>Body</h1>
-                </div>
-            </cw-card>
+                    <div card-body class="text-center">
+                        <button class="btn btn-danger btn-lg" (click)="madButton()">Press me!</button>
+                    </div>
+                </cw-card>
+            </div>
         </div>
     </div>
 </main>
