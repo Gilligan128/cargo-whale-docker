@@ -9,13 +9,13 @@
         <version>1.4.3.RELEASE</version>
     </parent>
 
-    <groupId>com.cargowhale.docker</groupId>
-    <artifactId>cargo-whale</artifactId>
+    <groupId>com.pillartechnology</groupId>
+    <artifactId>pluggedin-metrics-demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
 
-    <name>cargo-whale</name>
-    <description>Cargo Whale Docker</description>
+    <name>metrics-demo</name>
+    <description>PluggedIn Metrics Demo</description>
 
     <properties>
         <dropwizard-metrics.version>3.1.2</dropwizard-metrics.version>
@@ -158,7 +158,7 @@
                 <artifactId>docker-maven-plugin</artifactId>
                 <version>0.4.10</version>
                 <configuration>
-                    <imageName>rxnctrllabs/cargo-whale</imageName>
+                    <imageName>pillar-technology/pluggedin-metrics</imageName>
                     <dockerDirectory>src/main/docker</dockerDirectory>
                     <resources>
                         <resource>

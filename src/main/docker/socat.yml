@@ -1,9 +1,0 @@
-version: '2'
-services:
-  docker-proxy:
-    container_name: docker-proxy
-    image: rxnctrllabs/docker-proxy
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-    ports:
-      - 2375:2375
