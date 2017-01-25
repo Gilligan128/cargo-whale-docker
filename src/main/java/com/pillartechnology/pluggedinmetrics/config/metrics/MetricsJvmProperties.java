@@ -1,4 +1,4 @@
-package com.cargowhale.docker.config.metrics;
+package com.pillartechnology.pluggedinmetrics.config.metrics;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 

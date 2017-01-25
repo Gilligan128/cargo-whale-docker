@@ -1,15 +1,11 @@
-package com.cargowhale.docker.config.metrics;
+package com.pillartechnology.pluggedinmetrics.config.metrics;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-@ConfigurationProperties(prefix = "metricsdemo.metrics.graphite", ignoreUnknownFields = false)
-public class MetricsGraphiteProperties {
+@ConfigurationProperties(prefix = "metricsdemo.metrics.logs", ignoreUnknownFields = false)
+public class MetricsLogsProperties {
 
     private Boolean enabled;
-
-    private String host;
-
-    private Integer port;
 
     private Long period;
 
@@ -21,22 +17,6 @@ public class MetricsGraphiteProperties {
 
     public void setEnabled(final Boolean enabled) {
         this.enabled = enabled;
-    }
-
-    public String getHost() {
-        return this.host;
-    }
-
-    public void setHost(final String host) {
-        this.host = host;
-    }
-
-    public Integer getPort() {
-        return this.port;
-    }
-
-    public void setPort(final Integer port) {
-        this.port = port;
     }
 
     public Long getPeriod() {

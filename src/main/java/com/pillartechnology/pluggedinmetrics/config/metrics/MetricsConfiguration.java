@@ -1,4 +1,4 @@
-package com.cargowhale.docker.config.metrics;
+package com.pillartechnology.pluggedinmetrics.config.metrics;
 
 import com.codahale.metrics.MetricRegistry;
 import com.codahale.metrics.Slf4jReporter;
@@ -10,6 +10,7 @@ import com.ryantenney.metrics.spring.config.annotation.MetricsConfigurerAdapter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -20,6 +21,7 @@ import java.util.concurrent.TimeUnit;
 
 @Configuration
 @EnableMetrics(proxyTargetClass = true)
+@EnableConfigurationProperties({MetricsLogsProperties.class, MetricsGraphiteProperties.class, MetricsJvmProperties.class})
 public class MetricsConfiguration extends MetricsConfigurerAdapter {
 
     private static final String PROP_METRIC_REG_JVM_MEMORY = "jvm.memory";

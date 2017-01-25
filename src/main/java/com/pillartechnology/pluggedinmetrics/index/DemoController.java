@@ -1,4 +1,4 @@
-package com.cargowhale.docker.index;
+package com.pillartechnology.pluggedinmetrics.index;
 
 import com.codahale.metrics.annotation.Timed;
 import org.springframework.http.HttpStatus;

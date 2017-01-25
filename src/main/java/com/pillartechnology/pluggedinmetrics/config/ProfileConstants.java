@@ -1,4 +1,4 @@
-package com.cargowhale.docker.config;
+package com.pillartechnology.pluggedinmetrics.config;
 
 public class ProfileConstants {
 

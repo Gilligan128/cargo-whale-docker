@@ -1,4 +1,4 @@
-package com.cargowhale.docker.config;
+package com.pillartechnology.pluggedinmetrics.config;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.core.env.Environment;
