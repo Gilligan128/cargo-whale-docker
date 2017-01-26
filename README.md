@@ -1,4 +1,5 @@
 # Pillar PluggedIn - Metrics
+This sample app demonstrates how you can plug metrics into your exisitng Java application.
 
 ## Development
 
