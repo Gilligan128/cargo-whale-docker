@@ -41,6 +41,8 @@ $card-header-font-size: 16px;
     > .card-body {
         padding: 15px 22px;
         height: 100%;
+
+        font-size: initial;
     }
     > .card-header {
         color: $default-text;
