@@ -21,9 +21,12 @@ metricsdemo:
     jvm:
       enabled: true
     logs:
-      enabled: false
+      enabled: true
+      prefix: pluggedin
+      period: 60
     graphite:
       enabled: true
       host: graphite
       port: 2003
       period: 60
+      prefix: pluggedin

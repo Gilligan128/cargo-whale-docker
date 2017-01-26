@@ -1,7 +1,7 @@
 version: '2'
 services:
   metrics:
-    image: pillar-technology/pluggedin-metrics
+    image: rxnctrllabs/pluggedin-metrics
     external_links:
       - graphite:graphite
     ports:

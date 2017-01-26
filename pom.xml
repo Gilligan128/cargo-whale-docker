@@ -138,7 +138,7 @@
                 <artifactId>docker-maven-plugin</artifactId>
                 <version>0.4.10</version>
                 <configuration>
-                    <imageName>pillar-technology/pluggedin-metrics</imageName>
+                    <imageName>rxnctrllabs/pluggedin-metrics</imageName>
                     <dockerDirectory>src/main/docker</dockerDirectory>
                     <resources>
                         <resource>
