@@ -1,6 +1,4 @@
-# CargoWhaleDocker
-[![Build Status](https://travis-ci.org/tclchiam/cargo-whale-docker.svg?branch=master)](https://travis-ci.org/tclchiam/cargo-whale-docker)
-[![Coverage Status](https://coveralls.io/repos/github/tclchiam/cargo-whale-docker/badge.svg?branch=master)](https://coveralls.io/github/tclchiam/cargo-whale-docker?branch=master)
+# Pillar PluggedIn - Metrics
 
 ## Development
 
@@ -46,6 +44,3 @@ To stop & remove the daemon, run:
 
     docker-compose -f src/main/docker/app.yml down
 
-## !IMPORTANT NOTE!
-
-"**Id**" not "**ID**"
