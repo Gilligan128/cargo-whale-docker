@@ -1,5 +1,26 @@
 # Pillar PluggedIn - Metrics
-This sample app demonstrates how you can plug metrics into your exisitng Java application.
+[![Docker Pulls](https://img.shields.io/docker/pulls/rxnctrllabs/pluggedin-metrics.svg)](https://hub.docker.com/r/rxnctrllabs/pluggedin-metrics/)
+
+This sample app demonstrates how you can plug metrics into your existing Java application.
+
+Docker and Docker Compose are utilized to run the application in a production environment.
+Docker v1.10+ and Docker Compose v1.8+ are required.
+The Docker image can be found [here](https://hub.docker.com/r/rxnctrllabs/pluggedin-metrics/)
+
+To start the sample application with graphite and grafana, run:
+
+    docker-compose -f src/main/docker/app.yml up
+    
+Or:
+
+    docker-compose -f src/main/docker/app.yml up -d
+    
+To run as a daemon.
+
+To stop & remove the daemon, run:
+
+    docker-compose -f src/main/docker/app.yml down
+
 
 ## Development
 
@@ -22,26 +43,11 @@ To start the frontend for development, run:
 
     gulp serve
 
-## Using Docker
-
-Docker and Docker Compose are utilized to run the application in a production environment.
-Docker v1.10+ and Docker Compose v1.8+ are required.
+## Building the Docker image
 
 To fully dockerize the application and all the services that it depends on, run:
 
     mvn clean verify -Pprod docker:build
 
-Then run:
-
-    docker-compose -f src/main/docker/app.yml up
-    
-Or:
-
-    docker-compose -f src/main/docker/app.yml up -d
-    
-To run as a daemon.
-
-To stop & remove the daemon, run:
-
-    docker-compose -f src/main/docker/app.yml down
+Then follow the instructions at the top of the page to start the container.
 

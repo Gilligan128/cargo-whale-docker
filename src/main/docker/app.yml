@@ -8,7 +8,7 @@ services:
       - 8081:8081
 
   grafana:
-    image: grafana/grafana
+    image: rxnctrllabs/pluggedin-metrics-grafana
     external_links:
       - graphite:graphite
     ports:
